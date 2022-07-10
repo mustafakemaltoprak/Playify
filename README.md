@@ -10,5 +10,5 @@ Studio Playify is a song player, that allows you to play **copyright free** musi
 
 ## Get started
 Click on [this](https://studioplayify.vercel.app/signin) to start the website.
-<br>
+<br><br>
 Try logging in with Username: user@test.com Password: password
