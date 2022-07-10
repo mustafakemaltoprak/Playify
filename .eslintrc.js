@@ -1,5 +1,11 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'airbnb', 'airbnb/hooks', 'prettier'],
+  extends: [
+    'next',
+    'next/core-web-vitals',
+    'airbnb',
+    'airbnb/hooks',
+    'prettier',
+  ],
   plugins: ['react', '@typescript-eslint', 'prettier'],
   env: {
     browser: true,
@@ -15,6 +21,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'react/no-unescaped-entities': 'off',
+    '@next/next/no-page-custom-font': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
