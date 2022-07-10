@@ -7,7 +7,6 @@ import {
   ListItem,
   ListIcon,
   Divider,
-  Center,
   LinkBox,
   LinkOverlay,
 } from '@chakra-ui/layout';
@@ -19,6 +18,7 @@ import {
   MdPlaylistAdd,
   MdFavorite,
 } from 'react-icons/md';
+import { usePlaylist } from '../lib/hooks';
 
 const navMenu = [
   {
@@ -51,9 +51,10 @@ const musicMenu = [
   },
 ];
 
-const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
-
 const Sidebar = () => {
+  const { playlists } = usePlaylist();
+
+  console.log(playlists);
   return (
     <Box
       width="100%"
@@ -115,10 +116,16 @@ const Sidebar = () => {
           <List spacing={2}>
             {playlists.map((el) => {
               return (
-                <ListItem paddingX="20px" key={el}>
+                <ListItem paddingX="20px" key={el.id}>
                   <LinkBox>
-                    <NextLink href="/" passHref>
-                      <LinkOverlay>{el}</LinkOverlay>
+                    <NextLink
+                      href={{
+                        pathname: '/playlist/[id]',
+                        query: { id: el.id },
+                      }}
+                      passHref
+                    >
+                      <LinkOverlay>{el.name}</LinkOverlay>
                     </NextLink>
                   </LinkBox>
                 </ListItem>
